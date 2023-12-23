@@ -38,9 +38,9 @@ fn main() {
             PhysicsDebugPlugin::default(),
             MenuPlugin,
         ))
-        // .insert_resource(State::new(
-        //     DebugPickingMode::Disabled,
-        // ))
+        .insert_resource(State::new(
+            DebugPickingMode::Disabled,
+        ))
         .add_systems(Startup, setup)
         .add_systems(
             Update,

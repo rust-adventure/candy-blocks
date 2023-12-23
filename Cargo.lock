@@ -449,14 +449,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "bevy_basic_camera"
-version = "0.1.0"
-source = "git+https://github.com/DGriffin91/bevy_basic_camera#f2ea8aea24b8446cc292468cc92ea26fa3ea5999"
-dependencies = [
- "bevy",
-]
-
-[[package]]
 name = "bevy_core"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1468,16 +1460,13 @@ name = "candy-blocks"
 version = "0.1.0"
 dependencies = [
  "bevy",
- "bevy_basic_camera",
  "bevy_mod_picking",
  "bevy_tweening",
  "bevy_xpbd_3d",
  "itertools 0.12.0",
  "nom",
  "nom-supreme",
- "petgraph",
  "rand",
- "rayon",
  "rstest",
  "rstest_reuse",
  "test-log",
