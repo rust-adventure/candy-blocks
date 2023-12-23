@@ -27,16 +27,3 @@ rstest_reuse = "0.6.0"
 test-log = { version = "0.2.13", default-features = false, features = [
     "trace",
 ] }
-
-[[bench]]
-name = "day-22-bench"
-path = "benches/benchmarks.rs"
-harness = false
-
-[[bench]]
-name = "day-22-bench-criterion"
-path = "benches/benchmarks-criterion.rs"
-harness = false
-
-[features]
-dhat-heap = []
