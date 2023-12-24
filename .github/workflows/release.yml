@@ -245,11 +245,11 @@ jobs:
       - name: Prepare Package
         run: |
           mkdir -p ${{ env.binary }}.app/Contents/MacOS
-          codesign --force -v --timestamp -o runtime -s "Developer ID Application: Christopher Biscardi (GZ8T7WE3W4)" target/aarch64-apple-darwin/release/${{ env.binary }}
+          # codesign --force -v --timestamp -o runtime -s "Developer ID Application: Christopher Biscardi (GZ8T7WE3W4)" target/aarch64-apple-darwin/release/${{ env.binary }}
           cp target/aarch64-apple-darwin/release/${{ env.binary }} ${{ env.binary }}.app/Contents/MacOS/
           cp -r assets ${{ env.binary }}.app/Contents/MacOS/
           hdiutil create -fs HFS+ -volname "${{ env.binary }}-macOS-apple-silicon" -srcfolder ${{ env.binary }}.app ${{ env.binary }}-macOS-apple-silicon.dmg
-          codesign -v -s "Developer ID Application: Christopher Biscardi (GZ8T7WE3W4)" --timestamp ${{ env.binary }}-macOS-apple-silicon.dmg
+          # codesign -v -s "Developer ID Application: Christopher Biscardi (GZ8T7WE3W4)" --timestamp ${{ env.binary }}-macOS-apple-silicon.dmg
 
       - name: Upload binaries to artifacts
         uses: actions/upload-artifact@v3
