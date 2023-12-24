@@ -1,10 +1,30 @@
 use bevy::{
+    asset::{embedded_asset, embedded_path},
     prelude::*,
     render::render_resource::{AsBindGroup, ShaderRef},
 };
 use bevy_xpbd_3d::components::{
     CollidingEntities, LinearVelocity,
 };
+
+pub struct BrickMaterialPlugin;
+
+impl Plugin for BrickMaterialPlugin {
+    fn build(&self, app: &mut App) {
+        // dbg!(embedded_path!(
+        //     "src/",
+        //     "./brick_material.wgsl"
+        // ));
+        embedded_asset!(
+            app,
+            "src/",
+            "./brick_material.wgsl"
+        );
+    }
+}
+
+// // later in the app
+// let shader: Handle<Shader> = asset_server.load("embedded://bevy_pbr/render/mesh.wgsl");
 
 // This struct defines the data that will be passed to your shader
 #[derive(Asset, TypePath, AsBindGroup, Debug, Clone)]
@@ -21,7 +41,8 @@ pub struct CustomMaterial {
 /// You only need to implement functions for features that need non-default behavior. See the Material api docs for details!
 impl Material for CustomMaterial {
     fn fragment_shader() -> ShaderRef {
-        "shaders/custom_material.wgsl".into()
+        "embedded://candy_blocks/brick/brick_material.wgsl"
+            .into()
     }
 
     fn alpha_mode(&self) -> AlphaMode {
