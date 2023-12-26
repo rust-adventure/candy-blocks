@@ -1,5 +1,5 @@
 use bevy::{
-    asset::{embedded_asset, embedded_path},
+    asset::embedded_asset,
     prelude::*,
     render::render_resource::{AsBindGroup, ShaderRef},
 };

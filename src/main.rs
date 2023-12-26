@@ -9,6 +9,7 @@ use candy_blocks::{
         highlight_colliding_cubes, BrickMaterialPlugin,
         CustomMaterial,
     },
+    camera_controller::CameraControllerPlugin,
     level::{self, setup_game, GRID_AOC_TEST},
     menu::MenuPlugin,
     setup, AppState,
@@ -36,9 +37,10 @@ fn main() {
             // CameraControllerPlugin,
             TweeningPlugin,
             DefaultPickingPlugins,
-            PhysicsDebugPlugin::default(),
+            // PhysicsDebugPlugin::default(),
             MenuPlugin,
             BrickMaterialPlugin,
+            CameraControllerPlugin,
         ))
         .insert_resource(State::new(
             DebugPickingMode::Disabled,

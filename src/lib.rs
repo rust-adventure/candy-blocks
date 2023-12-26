@@ -4,9 +4,11 @@ use bevy::{
     },
     prelude::*,
 };
+use camera_controller::CameraController;
 use std::f32::consts::PI;
 
 pub mod brick;
+pub mod camera_controller;
 pub mod colors;
 pub mod level;
 pub mod materials;
@@ -54,5 +56,12 @@ pub fn setup(mut commands: Commands) {
         },
         BloomSettings::default(),
         // CameraController::default(),
+        CameraController {
+            orbit_focus: Vec3::ZERO,
+            orbit_mode: true,
+            // scroll_wheel_speed: todo!(),
+            // lock_y: todo!(),
+            ..default()
+        },
     ));
 }
