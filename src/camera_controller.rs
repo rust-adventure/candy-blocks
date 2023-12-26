@@ -21,7 +21,7 @@ impl Plugin for CameraControllerPlugin {
 struct RotateCamera(bool);
 
 fn mouse(
-    mut windows: Query<&mut Window>,
+    _windows: Query<&mut Window>,
     mouse: Res<Input<MouseButton>>,
     key: Res<Input<KeyCode>>,
     mut rotate_camera: ResMut<RotateCamera>,
