@@ -15,11 +15,34 @@ impl Plugin for BrickMaterialPlugin {
         //     "src/",
         //     "./brick_material.wgsl"
         // ));
-        embedded_asset!(
-            app,
-            "src/",
-            "./brick_material.wgsl"
-        );
+        // embedded_asset!(
+        //     app,
+        //     "src/",
+        //     "./brick_material.wgsl"
+        // );
+        #[cfg(any(
+            not(target_family = "windows"),
+            target_env = "gnu"
+        ))]
+        {
+            embedded_asset!(
+                app,
+                "src/",
+                "brick_material.wgsl"
+            );
+        }
+
+        #[cfg(all(
+            target_family = "windows",
+            not(target_env = "gnu")
+        ))]
+        {
+            embedded_asset!(
+                app,
+                "src\\",
+                "brick_material.wgsl"
+            );
+        }
     }
 }
 
